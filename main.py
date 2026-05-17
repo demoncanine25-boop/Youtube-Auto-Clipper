@@ -1,28 +1,29 @@
+import sys
 from downloader import download_video
-from transcriber import transcribe_video
-from clip_detector import detect_clips
+from transcriber import transcribe
+from highlight_detector import find_highlights
 from video_editor import create_clips
 
 
 def main():
 
-    url = input("Enter YouTube URL: ")
+    url = input("Enter YouTube video URL: ")
 
     print("\nDownloading video...")
     video_path = download_video(url)
 
     print("\nTranscribing video...")
-    segments = transcribe_video(video_path)
+    segments = transcribe(video_path)
 
-    print("\nDetecting highlight clips...")
-    clips = detect_clips(segments)
+    print("\nDetecting highlights...")
+    highlights = find_highlights(segments)
 
-    print(f"\nFound {len(clips)} clips")
+    print(f"\nFound {len(highlights)} highlight clips")
 
-    print("\nGenerating clips...")
-    create_clips(video_path, clips)
+    print("\nGenerating clips with subtitles...")
+    create_clips(video_path, highlights, segments)
 
-    print("\nDone! Clips saved in 'clips' folder.")
+    print("\nDone! Clips saved in /clips folder")
 
 
 if __name__ == "__main__":

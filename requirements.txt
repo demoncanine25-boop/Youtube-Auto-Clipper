@@ -1,5 +1,5 @@
 yt-dlp
-openai-whisper
 moviepy
-tqdm
-pillow
+openai-whisper
+torch
+numpy
