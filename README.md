@@ -7,6 +7,7 @@ Features
 - Speech to text transcription
 - Detect highlight moments
 - Export clips automatically
+- Auto Subtitles 
 
 Tech Stack
 Python
